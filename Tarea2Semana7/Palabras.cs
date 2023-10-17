@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace Tarea2Semana7
 {
-    internal class Salud
+    internal class Palabras
     {
-
-
 
     }
 }
