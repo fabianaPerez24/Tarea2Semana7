@@ -10,48 +10,22 @@ namespace Tarea2Semana7
     {
         static void Main(string[] args)
         {
-           
-            int vida = 10;
-            List<string> words = new List<string>();
 
-            words.Add("rojo");
-            words.Add("azul");
-            words.Add("verde");
-            words.Add("amarillo");
-            words.Add("morado");
-            words.Add("marron");
+            List<string> palabra = new(new string[] { "rojo", "azul", "verde", "amarillo" });
 
-            Console.WriteLine("Elige un numero del 1 al 6");
+            Random r = new Random();
+            Salud health = new Salud(10);
+            Palabras word = new Palabras(palabra[r.Next(palabra.Count)]);
 
-            string option = Console.ReadLine();
-            switch(option)
+            while (health.IsAlive() && !word.IsComplete())
             {
-                case "1":
+                Console.Clear();
+                Console.WriteLine($"vidas: {health.CurrentLives()}");
+                Console.WriteLine(word.DisplayText());
 
-                    List<string>rojo=new List<string>();
-                    rojo.Add("r");
-                    rojo.Add("o");
-                    rojo.Add("j");
-
-
-
-                    break;
+                string key = Console.ReadLine();
+                if (!word.Comparar(key[0])) health.RemoveHealth(1);
             }
-
-
-
-            List<string>azul =new List<string>();
-            azul.Add("a");
-            azul.Add("z");
-            azul.Add("u");
-            azul.Add("l");
-
-            List<string>verde =new List<string>();
-            verde.Add("v");
-            verde.Add("e");
-            verde.Add("r");
-            verde.Add("d");
-
         }
     }
 }
